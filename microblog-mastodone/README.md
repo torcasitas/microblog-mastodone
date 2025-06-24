@@ -1,3 +1,15 @@
+# Microblog cloned a la Mastodone
+
+Using this sample backend, we want you to build a React app that starts on a screen of posts
+where each post has the title and body visible. A boring microblog clone a la Mastodon. You can
+use this API to pull posts https://jsonplaceholder.typicode.com/posts. Clicking on a post should
+show a new screen that is like a detail screen for that post. It can include comments for that post
+from this route https://jsonplaceholder.typicode.com/posts/1/comments. Also include a way to
+view more posts by the same author somewhere on the screen. Clicking in can take you to a
+new screen similar to the first screen but only for the selected author. These screens can be
+nested as much as you want. For example, click on a post, click on more posts by that author,
+click on a post, etc.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
