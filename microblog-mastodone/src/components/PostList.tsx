@@ -1,17 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { User, Post } from "../_interfaces/interfaces";
+import { User, Post, CommonProps } from "../_interfaces/interfaces";
 
-interface Props {
-  posts: Post[];
-  users: User[] | null;
-}
-
-const PostList: React.FC<Props> = ({ posts, users }) => {
+const PostList: React.FC<CommonProps> = ({ posts, users, postsType }) => {
   return (
     <div style={{ padding: "4rem" }}>
-      <h1>Posts </h1>
-      {posts.map((post) => (
+      <h1>{postsType}</h1>
+      {posts?.map((post) => (
         <div key={post.id} style={{ marginBottom: "1.5rem" }}>
           <Link to={`/posts/${post.id}`}>
             <h2>{post.title}</h2>

@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import PostsPage from "./pages/PostsPage";
 import PostsDetail from "./pages/PostsDetail";
+import PostsByAuthor from "./pages/PostsByAuthor";
 import { User } from "./_interfaces/interfaces";
 
 const usersKey = "users";
@@ -34,7 +35,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/posts" />} />
         <Route path="/posts" element={<PostsPage users={users} />} />
-        <Route path="/posts/:id" element={<PostsDetail />} />
+        <Route path="/posts/:id" element={<PostsDetail users={users} />} />
+        <Route
+          path="/posts/author/:id"
+          element={<PostsByAuthor users={users} />}
+        />
       </Routes>
     </Router>
   );

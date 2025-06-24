@@ -36,3 +36,9 @@ export interface Comment {
   email: string;
   body: string;
 }
+
+export interface CommonProps {
+  posts?: Post[];
+  postsType?: string;
+  users: User[] | null;
+}

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import PostList from "../components/PostList";
-import { Post, User } from "../_interfaces/interfaces";
+import { Post, CommonProps } from "../_interfaces/interfaces";
 
-interface Props {
-  users: User[] | null;
-}
-
-const PostsPage: React.FC<Props> = ({ users }) => {
+const PostsPage: React.FC<CommonProps> = ({ users }) => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const postsType = "All Posts";
   console.log(`Users ${users && users[0]}`);
 
   useEffect(() => {
@@ -16,7 +13,7 @@ const PostsPage: React.FC<Props> = ({ users }) => {
       .then((data) => setPosts(data));
   }, []);
 
-  return <PostList posts={posts} users={users} />;
+  return <PostList posts={posts} users={users} postsType={postsType} />;
 };
 
 export default PostsPage;
