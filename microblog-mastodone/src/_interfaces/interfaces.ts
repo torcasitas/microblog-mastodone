@@ -42,3 +42,8 @@ export interface CommonProps {
   postsType?: string;
   users: User[] | null;
 }
+
+export interface DogResponse {
+  message: string;
+  status: string;
+}

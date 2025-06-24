@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { CommonProps } from "../_interfaces/interfaces";
 import { Link } from "react-router-dom";
-import { User, Post, CommonProps } from "../_interfaces/interfaces";
+import DogImage from "./DogImage";
 
 const PostList: React.FC<CommonProps> = ({ posts, users, postsType }) => {
   return (
@@ -16,6 +17,9 @@ const PostList: React.FC<CommonProps> = ({ posts, users, postsType }) => {
             <Link to={`/posts/author/${post.userId}`}>
               {users?.filter((user) => user.id === post.userId)[0].name}
             </Link>
+          </p>
+          <p>
+            <DogImage />
           </p>
           <p>{post.body}</p>
         </div>
