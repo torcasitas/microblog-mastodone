@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import PostList from "../components/PostList";
+import { Post, CommonProps } from "../_interfaces/interfaces";
 
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
-const PostsPage: React.FC = () => {
+const PostsPage: React.FC<CommonProps> = ({ users }) => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const postsType = "All Posts";
+  console.log(`Users ${users && users[0]}`);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -17,7 +13,7 @@ const PostsPage: React.FC = () => {
       .then((data) => setPosts(data));
   }, []);
 
-  return <PostList posts={posts} />;
+  return <PostList posts={posts} users={users} postsType={postsType} />;
 };
 
 export default PostsPage;

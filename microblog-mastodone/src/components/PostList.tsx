@@ -1,31 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { CommonProps } from "../_interfaces/interfaces";
 import { Link } from "react-router-dom";
+import DogImage from "./DogImage";
 
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
-interface Props {
-  posts: Post[];
-}
-
-const PostList: React.FC<Props> = ({ posts }) => {
+const PostList: React.FC<CommonProps> = ({ posts, users, postsType }) => {
   return (
     <div style={{ padding: "4rem" }}>
-      <h1>Posts </h1>
-      {posts.map((post) => (
+      <h1>{postsType}</h1>
+      {posts?.map((post) => (
         <div key={post.id} style={{ marginBottom: "1.5rem" }}>
           <Link to={`/posts/${post.id}`}>
             <h2>{post.title}</h2>
           </Link>
           <p>
-            by{" "}
+            Authored by{" "}
             <Link to={`/posts/author/${post.userId}`}>
-              Author {post.userId}
+              {users?.filter((user) => user.id === post.userId)[0].name}
             </Link>
+          </p>
+          <p>
+            <DogImage />
           </p>
           <p>{post.body}</p>
         </div>
